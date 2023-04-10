@@ -1,9 +1,14 @@
 import { Request, Response } from "express";
-import { scrapeHorseRacingOdds, scrapeHorseRaces } from "../../WebScrapers/RaceOdds";
-import { RaceInfo } from "../../WebScrapers/RaceOdds";
+import {
+  scrapeHorseRacingOdds,
+  scrapeHorseRaces,
+} from "../../WebScrapers/RaceOdds";
+
 export async function eventFinder(req: Request, res: Response) {
   try {
-    const events = await scrapeHorseRaces("https://www.betfair.com/sport/horse-racing");
+    const events = await scrapeHorseRaces(
+      "https://www.betfair.com/sport/horse-racing"
+    );
 
     if (events) {
       res.send(events);

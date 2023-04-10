@@ -1,5 +1,9 @@
 import { Router } from "express";
-import { registerUser, login, logout } from "./MongoDB/Controllers/userController";
+import {
+  registerUser,
+  login,
+  logout,
+} from "./MongoDB/Controllers/userController";
 import {
   eventFinder,
   oddsFinder,
@@ -19,5 +23,6 @@ router.get("/events", authMiddleware, eventFinder);
 
 router.post("/register", registerUser);
 router.post("/login", login);
-router.post('/logout' , logout)
+router.post("/logout", logout);
+
 export default router;
